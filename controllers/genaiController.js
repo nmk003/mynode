@@ -20,17 +20,9 @@
 // };
 
 import { GoogleGenAI } from "@google/genai";
-const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_GENAI_API_KEY });
 export const getGenAI = async (req, res) => {
   const { prompt } = req.body;
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash-001",
-      contents: prompt,
-      toolConfig: {
-        temperature: 1,
-      },
-    });
     res.status(200).json({ success: true, data: response.text });
   } catch (error) {
     console.log("Get Open AI API Error: ", error);
