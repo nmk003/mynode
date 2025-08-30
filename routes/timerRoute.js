@@ -7,7 +7,7 @@ import {
 
 const router = express.Router();
 
-router.get("/timers/:userid", Authentication, getAllTimersByUserId);
-router.post("/timer", Authentication, createTimerByUserId);
+router.get("/timers/:userid", getAllTimersByUserId);
+router.post("/timer", createTimerByUserId);
 
 export default router;
